@@ -1,14 +1,12 @@
+from todo import load_tasks, save_tasks 
 
-to_do_list = []
+def main():
+    tasks = load_tasks()
+    print("Loaded tasks:", tasks)
+    new_task = {"description": "Buy groceries", "priority": "low", "completed": False}
+    tasks.append(new_task)
+    save_tasks(tasks)
+    print("Updated tasks:", tasks)
 
-while True:
-    task = input("Enter a task (or 'done' to stop): ")
-   
-    if task == 'done':
-        break
-    else:
-        to_do_list.append(task)
-
-print("Your tasks are:")
-for task in to_do_list:
-    print(task)
+if __name__ == "__main__":
+    main()
